@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce web page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h2,
+      h3 {
+        color: #ff1e00;
+      }
+      .product {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        width: 400px;
+        height: 750px;
+        display: flex;
+        float: left;
+        overflow: auto;
+        flex-wrap: wrap;
+        padding: 0 20px;
+        /* margin: 20px auto; */
+        text-align: center;
+      }
+      .product h2 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+      }
+      .product p {
+        font-size: 1.2em;
+        color: #333;
+      }
+      .product button {
+        background-color: #2846a7;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+      button {
+        height: 50px;
+      }
+      .product-image {
+        transition: transform 0.3s ease-in-out;
+      }
+      .product-image:hover {
+        transform: scale(1.5); /* Zoom effect */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2
+        style="
+          color: black;
+          text-align: center;
+          background-color: antiquewhite;
+          padding: 10px;
+        "
+      >
+        E-Commerce Website
+      </h2>
+    </header>
+    <div class="product">
+      <h2>Product Name:Kurties</h2>
+      <img
+        src="https://images.meesho.com/images/products/347295255/rdo5h_512.webp"
+        width="500px"
+        height="500px"
+        class="product-image"
+      />
+
+      <p>Price:RS.599</p>
+
+      <div>
+        <!-- Add to Cart Button -->
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+      <button onclick="alert('Thank you for your purchase!')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <h2>Product Name:Kurties</h2>
+      <img
+        src="https://wholetex.sgp1.cdn.digitaloceanspaces.com/full/silk-blend-women-kurti-set-143.jpg"
+        width="500px"
+        height="500px"
+        class="product-image"
+      />
+
+      <p>Price:RS.699</p>
+
+      <div>
+        <!-- Add to Cart Button -->
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+      <button onclick="alert('Thank you for your purchase!')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <h2>Product Name:Kurties</h2>
+      <img
+        src="https://absolutelydesi.com/wp-content/uploads/2023/09/Thread-Button-Women-Black-Mirror-Work-Pure-Cotton-Kurti-with-Salwar-With-Dupatta-5.jpg"
+        width="500px"
+        height="500px"
+        class="product-image"
+      />
+
+      <p>Price:RS.799</p>
+
+      <div>
+        <!-- Add to Cart Button -->
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+      <button onclick="alert('Thank you for your purchase!')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <h2>Product Name:Kurties</h2>
+      <img
+        src="https://mahezon.in/cdn/shop/files/womenKurtapantwithdupattaset_500x641_crop_center.png?v=1702719927"
+        width="500px"
+        height="500px"
+        class="product-image"
+      />
+
+      <p>Price:RS.1050</p>
+
+      <div>
+        <!-- Add to Cart Button -->
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+      <button onclick="alert('Thank you for your purchase!')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <h2>Product Name:Kurties</h2>
+      <img
+        src="https://www.sheetkart.com/cdn/shop/products/DSC_2773_bcd3aef9-dba1-4088-944c-c6098d419f37_1200x1200.jpg?v=1632570688"
+        width="400px"
+        height="500px"
+        class="product-image"
+      />
+
+      <p>Price:RS.999</p>
+
+      <div>
+        <!-- Add to Cart Button -->
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+      <button onclick="alert('Thank you for your purchase!')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <h2>Product Name:Kurties</h2>
+      <img
+        src="https://img1.exportersindia.com/product_images/bc-full/2019/8/6561142/ladies-fancy-kurtis-1565956814-5046020.jpeg"
+        width="500px"
+        height="500px"
+        class="product-image"
+      />
+
+      <p>Price:RS.899</p>
+
+      <div>
+        <!-- Add to Cart Button -->
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+      <button onclick="alert('Thank you for your purchase!')">Buy Now</button>
+
+      <script>
+        document
+          .getElementById("color-variant")
+          .addEventListener("change", function () {
+            const color = this.value;
+            // Logic to update product image, price, and description
+          });
+
+        function updateProductDetails() {
+          const colorSelect = document.getElementById("color");
+          const selectedColor = colorSelect.options[colorSelect.selectedIndex];
+          const sizeSelect = document.getElementById("size");
+          const materialSelect = document.getElementById("material");
+
+          // Update product image
+          const productImage = selectedColor.dataset.image;
+          document.getElementById("productImage").src = productImage;
+
+          // Update product description
+          const productDescription = selectedColor.dataset.description;
+          document.getElementById(
+            "productDescription"
+          ).textContent = `${productDescription}, Size: ${sizeSelect.value}, Material: ${materialSelect.value}`;
+
+          // Update product price
+          const productPrice = selectedColor.dataset.price;
+          document.getElementById(
+            "productPrice"
+          ).textContent = `$${productPrice}`;
+        }
+
+        document
+          .getElementById("add-to-cart")
+          .addEventListener("click", function () {
+            const quantity = parseInt(
+              document.getElementById("quantity").value
+            );
+            if (quantity <= 0) {
+              alert("Please select a valid quantity.");
+              return;
+            }
+
+            const color = document.getElementById("color").value;
+            const size = document.getElementById("size").value;
+            const price = document.getElementById("product-price").textContent;
+
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ color, size, quantity, price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            const cartCount = document.getElementById("cart-count");
+            cartCount.textContent = cart.reduce(
+              (acc, item) => acc + item.quantity,
+              0
+            );
+
+            alert(`Added ${quantity} item(s) to the cart!`);
+          });
+      </script>
+    </div>
+  </body>
+</html>
